@@ -1,23 +1,156 @@
 aid: yoti
+
 name: Yoti
-description: 'Yoti is a company surfaced via the API Evangelist harvest backlog (source: tag-qc) and added
-  to the network as a stub for full-pipeline profiling.'
+
+image: https://cdn.aws.yoti.com/wp-content/uploads/Yoti-site-image_1200x675.jpg
+
+description: Yoti provides a digital identity platform that enables businesses to verify users, issue digital ID wallets, and comply with age
+  verification, KYC, and AML regulations. Their APIs cover identity verification, age checks, digital signatures, and trust services, supporting
+  web, mobile, and in‑branch integrations across multiple languages and SDKs.
+
 url: https://raw.githubusercontent.com/api-evangelist/yoti/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:tag-qc
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-14 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-10-14'
+
 modified: '2026-10-14'
+
 tags:
 - Company
-apis: []
+- Identity
+- Verification
+- DigitalID
+- SDK
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: Spectral
+  url: rules/yoti-rules.yml
+- type: JSONLD
+  url: json-ld/yoti-context.jsonld
+- type: Vocabulary
+  url: vocabulary/yoti-vocabulary.yml
+- type: DataModel
+  url: data-model/yoti-data-model.yml
+- type: Sandbox
+  url: sandbox/yoti-sandbox.yml
+- type: Compliance
+  url: https://www.yoti.com/security/
+- type: Authentication
+  url: authentication/yoti-authentication.yml
+- type: Conformance
+  url: conformance/yoti-conformance.yml
+- type: LLMsTxt
+  url: llms/yoti-llms.txt
+- type: MCPServer
+  url: mcp/yoti-mcp.yml
+- type: SecurityTxt
+  url: well-known/yoti-status-security.txt
+- type: SecurityTxt
+  url: well-known/yoti-backstage-security.txt
+- type: WellKnown
+  url: well-known/yoti-well-known.yml
+- type: Hosts
+  url: hosts/yoti-hosts.yml
+- type: Vendors
+  url: vendors/yoti-vendors.yml
+- type: SDKs
+  url: packages/yoti-packages.yml
+- type: Packages
+  url: packages/yoti-packages.yml
+- type: StatusPage
+  url: https://status.yoti.com/
+- type: Security
+  url: https://www.yoti.com/security/
+- type: Newsroom
+  url: https://www.yoti.com/press/
+- type: OAuthScopes
+  url: scopes/yoti-scopes.yml
+- type: TrustCenter
+  url: security/yoti-trust-center.yml
+- type: DomainSecurity
+  url: security/yoti-domain-security.yml
 - type: Website
   url: https://www.yoti.com
+- type: DeveloperPortal
+  url: https://developers.yoti.com
+- type: Documentation
+  url: https://developers.yoti.com
+- type: APIReference
+  url: https://developers.yoti.com
+- type: GettingStarted
+  url: https://developers.yoti.com/quick-start
+- type: Support
+  url: https://support.yoti.com/get-in-touch
+- type: Blog
+  url: https://www.yoti.com/blog
+- type: SignUp
+  url: https://www.yoti.com/contact/business/
+- type: TermsOfService
+  url: https://yoti.com/terms
+- type: PrivacyPolicy
+  url: https://yoti.com/privacy
+
+apis:
+- name: Age Verification API
+  description: Yoti Age Verification API provides endpoints to verify a user's age and identity.
+  humanURL: https://developers.yoti.com/age-verification-api
+  baseURL: null
+  aid: yoti:age-verification-api
+- aid: yoti:yoti-api
+  name: Yoti API
+  description: 'Yoti API as documented publicly: 7 operations. Contract generated from the documentation by API Evangelist (2026-10-14); not the
+
+    provider''s own document.'
+  humanURL: https://developers.yoti.com/proof-of-age-api
+  baseURL: https://auth.api.yoti.com
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/yoti-openapi-generated.yml
+    x-provenance: generated
+  - type: JSONSchema
+    url: json-schema/yoti-post-ai-v1-v1-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-poa-v1-verify-request-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-accounts-accountid-moderations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-api-v1-sessions-response-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-poa-v1-verify-response-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-api-v1-sessions-request-schema.json
+
+x-coverage:
+  state: none
+  reason: no-developer-program
+  method: derived
+  generated: '2026-10-14'
+  generator: derive-coverage.py (pre-flight evidence)
+  detail: the company publishes no developer documentation host and no machine-readable contract on its own domain
+  evidence:
+  - url: https://developers.yoti.com/mcp
+    status: null
+  - url: https://cdn.aws.yoti.com/mcp
+    status: 403
+  - url: https://www.yoti.com
+    status: 200
+x-enrichment:
+  date: '2026-10-14'
+  status: enriched
+  artifacts_added: 28
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

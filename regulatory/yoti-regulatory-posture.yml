@@ -1,0 +1,22 @@
+generated: '2026-10-14'
+method: searched
+source:
+  - url: https://www.yoti.com/privacy
+    http_status: 200
+    fetched: true
+    quote: "Yoti does not sell your data. If you are doing an age or identity check we will share the results with our Client i.e. the organisation that asked you to complete the age or identity check."
+    section: "Data sharing"
+    note: "Indicates data is shared with clients but not sold, relevant to data_subject_request and subprocessors."
+  - url: https://www.yoti.com/privacy
+    http_status: 200
+    fetched: true
+    quote: "Yoti also shares data with our trusted 3rd party suppliers for limited purposes such as fraud prevention."
+    section: "Data sharing with subprocessors"
+    note: "Mentions subprocessors for fraud prevention."
+  - url: https://www.yoti.com/privacy
+    http_status: 200
+    fetched: true
+    quote: "If you are using the Digital ID App you can download your data at any time in your app settings. Yoti has no access to your data, only you have access. This is because all the data is encrypted and sharded, and the private key ... is stored in the secure area of your mobile phone."
+    section: "Data access and retention"
+    note: "Describes user access to data and encryption, implying data retention practices."
+signals: []

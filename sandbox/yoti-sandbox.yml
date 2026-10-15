@@ -1,0 +1,25 @@
+generated: '2026-10-14'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://developers.yoti.com/age-verification/sandbox-introduction.md
+sources:
+- https://developers.yoti.com/age-verification/sandbox-introduction.md
+- https://developers.yoti.com/age-verification/sandbox-integration-guide.md
+- https://developers.yoti.com/age-verification/create-sandbox-session.md
+- https://developers.yoti.com/age-verification/mock-the-sandbox-response.md
+description: Yoti Age Verification Sandbox
+modes:
+- name: sandbox
+  base_url: https://age.yoti.com/sandbox/api/v1
+  how_to_get_access: Generate a JWT signed with your service/SDK private PEM key, then exchange it for an OAuth Access Token (bearer) as described
+    in the Integration guide. The token can be reused for multiple requests and expires after up to 30 minutes.
+triggers:
+- Mock responses via PUT https://age.yoti.com/sandbox/api/v1/sessions/<sessionId>/response-config
+- Use the sandbox UI at https://age.yoti.com/sandbox?sessionId=<SESSION_ID>&sdkId=<SDK_ID>
+note: No specific test key prefixes, test cards, accounts, tokens, or amount triggers are documented. No time‑simulation or test‑clock feature
+  is mentioned.
+docs:
+- https://developers.yoti.com/age-verification/sandbox-introduction.md
+- https://developers.yoti.com/age-verification/sandbox-integration-guide.md
+- https://developers.yoti.com/age-verification/create-sandbox-session.md
+- https://developers.yoti.com/age-verification/mock-the-sandbox-response.md

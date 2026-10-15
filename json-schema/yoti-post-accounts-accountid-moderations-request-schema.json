@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/yoti/main/json-schema/yoti-post-accounts-accountid-moderations-request-schema.json",
+  "title": "PostAccountsAccountidModerationsRequest",
+  "x-generated": "2026-10-14",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/yoti-openapi-generated.yml#/components/schemas/PostAccountsAccountidModerationsRequest",
+  "type": "object",
+  "properties": {
+    "content_id": {
+      "type": "string"
+    },
+    "moderator_id": {
+      "type": "string"
+    },
+    "profile_ids": {
+      "type": "array"
+    },
+    "group_ids": {
+      "type": "array"
+    },
+    "age_estimation": {
+      "type": "integer"
+    },
+    "unknown_faces": {
+      "type": "boolean"
+    },
+    "consent": {
+      "type": "boolean"
+    },
+    "id_verified_profiles": {
+      "type": "boolean"
+    },
+    "id_verified_uploader": {
+      "type": "boolean"
+    },
+    "notifications": {
+      "type": "object"
+    },
+    "flagged_object_categories": {
+      "type": "array"
+    },
+    "flagged_contexts": {
+      "type": "array"
+    },
+    "policies": {
+      "type": "array"
+    },
+    "user_info": {
+      "type": "string"
+    },
+    "query": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "content_id"
+  ]
+}

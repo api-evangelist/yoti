@@ -1,0 +1,32 @@
+generated: '2026-10-14'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://developers.yoti.com/age-verification/social-security-number.md
+sources:
+- https://developers.yoti.com/age-verification/social-security-number.md
+- https://developers.yoti.com/age-verification/data-privacy.md
+- https://developers.yoti.com/age-verification/headless-ssn.md
+- https://developers.yoti.com/digital-id/security---data-protection.md
+standards:
+- id: soc2
+  conforms: true
+  evidence: Yoti holds a SOC 2 Type 2 for our technical and organisational security controls certification.
+- id: iso-27001
+  conforms: true
+  evidence: Yoti also holds an ISO/IEC 27001:2013 information security standard.
+- id: gdpr
+  conforms: true
+  evidence: Yoti has a comprehensive privacy governance framework in place, built on the EU’s GDPR requirements.
+- id: openapi-3.1
+  conforms: true
+  evidence: the document declares 3.1.0
+- id: oauth2
+  conforms: true
+  evidence: 'securitySchemes: OAuth2_Client_Credentials (oauth2)'
+- id: rfc9457
+  conforms: false
+  evidence: no response declares application/problem+json
+- id: idempotency
+  conforms: false
+  evidence: no idempotency key parameter on mutating operations
+docs: https://developers.yoti.com/age-verification/social-security-number.md

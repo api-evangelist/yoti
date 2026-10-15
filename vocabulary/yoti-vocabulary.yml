@@ -1,0 +1,56 @@
+generated: '2026-10-14'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/_ae-authored/yoti-openapi-generated.yml
+vocabulary:
+  name: Yoti Domain Vocabulary
+  description: 'Terms declared by Yoti''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions. Derived,
+    not authored.'
+  version: '2026-10-14'
+  terms:
+  - term: PostAccountsAccountidModerationsRequest
+    definition: 'Object declared by the contract with fields: content_id, moderator_id, profile_ids, group_ids, age_estimation, unknown_faces,
+      consent, id_verified_profiles, id_verified_uploader, notifications, flagged_object_categories, flagged_contexts. (3 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/yoti-openapi-generated.yml#/components/schemas/PostAccountsAccountidModerationsRequest
+  - term: PostAccountsAccountidModerationsResponse
+    definition: 'Object declared by the contract with fields: id.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/yoti-openapi-generated.yml#/components/schemas/PostAccountsAccountidModerationsResponse
+  - term: PostAiV1V1IdRequest
+    definition: 'Object declared by the contract with fields: img, img_validation_level, secure, age_estimation_model.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/yoti-openapi-generated.yml#/components/schemas/PostAiV1V1IdRequest
+  - term: PostAiV1V1IdResponse
+    definition: 'Object declared by the contract with fields: age, std_dev.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/yoti-openapi-generated.yml#/components/schemas/PostAiV1V1IdResponse
+  - term: PostApiV1SessionsRequest
+    definition: 'Object declared by the contract with fields: CreateSession.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/yoti-openapi-generated.yml#/components/schemas/PostApiV1SessionsRequest
+  - term: PostApiV1SessionsResponse
+    definition: 'Object declared by the contract with fields: 200, 400, 401, 403.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/yoti-openapi-generated.yml#/components/schemas/PostApiV1SessionsResponse
+  - term: GetApiV1SessionsSessionidResponse
+    definition: 'Object declared by the contract with fields: token, session_id.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/yoti-openapi-generated.yml#/components/schemas/GetApiV1SessionsSessionidResponse
+  - term: PostPoaV1VerifyRequest
+    definition: 'Object declared by the contract with fields: qr, qr.value, qr.scanned_at, terminal, terminal.id, terminal.store_id.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/yoti-openapi-generated.yml#/components/schemas/PostPoaV1VerifyRequest
+  - term: PostPoaV1VerifyResponse
+    definition: 'Object declared by the contract with fields: 200, 202, 400, 422, 500.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/yoti-openapi-generated.yml#/components/schemas/PostPoaV1VerifyResponse

@@ -1,0 +1,192 @@
+generated: '2026-10-14'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 15
+  own: 11
+  other_domain: 4
+  platform: 0
+  roles:
+  - api
+  - identity
+  - legal
+  - other
+  - portal
+  - status
+  - support
+  - website
+hosts:
+- host: api.yoti.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: yoti.com
+  role: api
+  relation: own
+- host: auth.api.yoti.com
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: yoti.com
+  role: api
+  relation: own
+- host: backstage.forgerock.com
+  found_by:
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: forgerock.com
+  role: other
+  relation: other-domain
+- host: cdn.aws.yoti.com
+  found_by:
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: yoti.com
+  role: other
+  relation: own
+- host: developers.yoti.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - DeveloperPortal
+  - Documentation
+  - APIReference
+  - GettingStarted
+  serves:
+  - docs
+  - developer-portal
+  vendor: developerhub
+  registrable_domain: yoti.com
+  role: portal
+  relation: own
+- host: hub.yoti.com
+  found_by:
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: yoti.com
+  role: other
+  relation: own
+- host: identity.yoti.com
+  found_by:
+  - probed
+  - site-links
+  - docs-index
+  - well-known
+  types: []
+  serves:
+  - docs
+  registrable_domain: yoti.com
+  role: identity
+  relation: own
+- host: status.yoti.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  types:
+  - StatusPage
+  serves: []
+  registrable_domain: yoti.com
+  role: status
+  relation: own
+- host: support.yoti.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  types:
+  - Support
+  serves: []
+  registrable_domain: yoti.com
+  role: support
+  relation: own
+- host: verifiedcalls.yoti.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: yoti.com
+  role: other
+  relation: own
+- host: www.nuget.org
+  found_by:
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: nuget.org
+  role: other
+  relation: other-domain
+- host: www.yoti.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Compliance
+  - Security
+  - Newsroom
+  - Website
+  - Blog
+  - SignUp
+  serves:
+  - cdn
+  vendor: cloudflare
+  registrable_domain: yoti.com
+  role: website
+  relation: own
+- host: www.yotisign.com
+  found_by:
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: yotisign.com
+  role: other
+  relation: other-domain
+- host: yoti.com
+  found_by:
+  - pointer
+  types:
+  - TermsOfService
+  - PrivacyPolicy
+  serves: []
+  registrable_domain: yoti.com
+  role: legal
+  relation: own
+- host: yoti.world
+  found_by:
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: yoti.world
+  role: other
+  relation: other-domain

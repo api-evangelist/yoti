@@ -1,0 +1,39 @@
+generated: '2026-10-14'
+method: probed
+generator: harvest-packages.py
+source: registry metadata endpoints (registry.npmjs.org, pypi.org, rubygems.org, api.nuget.org, packagist.org, crates.io)
+ownership_rule: 'official: true only when the registry metadata (homepage, repository, author, URLs) names the provider''s domain (security/yoti-domain-security.yml,
+  security/yoti-trust-center.yml, yoti.com) or its accepted GitHub org.'
+packages:
+- name: yoti
+  registry: npm
+  url: https://www.npmjs.com/package/yoti
+  language: JavaScript
+  official: true
+  version: 4.15.0
+  published: '2026-09-03'
+  evidence: metadata names yoti.com
+- name: yoti
+  registry: pypi
+  url: https://pypi.org/project/yoti/
+  language: Python
+  official: true
+  version: 2.14.6
+  published: '2026-06-25'
+  evidence: metadata names yoti.com
+- name: yoti
+  registry: rubygems
+  url: https://rubygems.org/gems/yoti
+  language: Ruby
+  official: false
+  version: 1.10.0
+  published: '2020-11-16'
+  evidence: 'name match only: the metadata names neither the provider''s domain nor its GitHub org'
+- name: yoti
+  registry: nuget
+  url: https://www.nuget.org/packages/yoti
+  language: C#
+  official: false
+  version: 3.20.0
+  published: null
+  evidence: 'name match only: the metadata names neither the provider''s domain nor its GitHub org'

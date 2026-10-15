@@ -1,0 +1,20 @@
+generated: '2026-10-14'
+method: derived
+source: openapi/yoti-openapi-generated.yml
+schemes:
+- name: OAuth2_Client_Credentials
+  source: openapi/yoti-openapi-generated.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://auth.api.yoti.com/v1/oauth/token
+scopes:
+- scope: did:match
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/yoti-openapi-generated.yml
+- scope: poa:verify
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/yoti-openapi-generated.yml

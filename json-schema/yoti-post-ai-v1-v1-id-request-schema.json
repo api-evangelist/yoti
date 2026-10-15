@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/yoti/main/json-schema/yoti-post-ai-v1-v1-id-request-schema.json",
+  "title": "PostAiV1V1IdRequest",
+  "x-generated": "2026-10-14",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/yoti-openapi-generated.yml#/components/schemas/PostAiV1V1IdRequest",
+  "type": "object",
+  "properties": {
+    "img": {
+      "type": "string",
+      "description": "High quality Base64 encoded image. Subject to image requirements https://developers.yoti.com/age-estimation/overview#image-requirements"
+    },
+    "img_validation_level": {
+      "type": "string",
+      "description": "(optional) The level of validations to be applied against the image and bounding boxes to support different sizes of images."
+    },
+    "secure": {
+      "type": "object",
+      "description": "Required for SICAP Secure image capture) Secure information that certifies the image was not modified. The Yoti React Face Capture provides this information that shouldn't be edited."
+    },
+    "age_estimation_model": {
+      "type": "string",
+      "description": "(optional) Select a specific age estimation model to execute. [Please get in touch with us to discuss switching to a different model.]"
+    }
+  }
+}

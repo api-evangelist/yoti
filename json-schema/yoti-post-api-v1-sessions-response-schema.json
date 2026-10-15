@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/yoti/main/json-schema/yoti-post-api-v1-sessions-response-schema.json",
+  "title": "PostApiV1SessionsResponse",
+  "x-generated": "2026-10-14",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/yoti-openapi-generated.yml#/components/schemas/PostApiV1SessionsResponse",
+  "type": "object",
+  "properties": {
+    "200": {
+      "type": "string",
+      "description": "OK"
+    },
+    "400": {
+      "type": "string",
+      "description": "Bad request - missing field, spoofing attempt detected, invalid validation methods, need to re-verify"
+    },
+    "401": {
+      "type": "string",
+      "description": "Missing or unknown Yoti-Sdk-Id"
+    },
+    "403": {
+      "type": "string",
+      "description": "Not allowed to use this session"
+    }
+  }
+}

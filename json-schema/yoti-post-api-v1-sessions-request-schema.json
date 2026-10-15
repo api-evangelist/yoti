@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/yoti/main/json-schema/yoti-post-api-v1-sessions-request-schema.json",
+  "title": "PostApiV1SessionsRequest",
+  "x-generated": "2026-10-14",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/yoti-openapi-generated.yml#/components/schemas/PostApiV1SessionsRequest",
+  "type": "object",
+  "properties": {
+    "CreateSession": {
+      "type": "string",
+      "description": "This payload will generate a session configuration object"
+    }
+  },
+  "required": [
+    "CreateSession"
+  ]
+}

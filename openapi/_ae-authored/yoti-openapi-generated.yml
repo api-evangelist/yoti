@@ -1,0 +1,401 @@
+openapi: 3.1.0
+info:
+  title: Yoti API
+  version: '2026-10-14'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-14: 7 operation(s) read from 10 public documentation page(s) (each operation
+    names its page in x-source). This is not the provider''s published contract; Yoti has published no machine-readable contract that the pipeline
+    could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 3
+    documentation: 4
+    pages-with-code: 4
+    pages-read: 10
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-14'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://developers.yoti.com/proof-of-age-api
+  - https://developers.yoti.com/proof-of-age-api.md
+  - https://developers.yoti.com/proof-of-age/api-authentication.md
+  - https://developers.yoti.com/age-verification/headless-idv-client.md
+  - https://developers.yoti.com/proof-of-age-api.md?operation=v1-poa-verify
+  - https://developers.yoti.com/age-verification-api.md?operation=post-sessions
+  - https://developers.yoti.com/facial-age-estimation-api.md?operation=op-post-aiv1age
+  - https://developers.yoti.com/trust-api.md?operation=op-post-accountsaccountidmoderations
+  - https://developers.yoti.com/age-verification-api.md?operation=op-get-apiv1sessionssessionid
+  - https://developers.yoti.com/facial-age-estimation-api.md?operation=op-post-aiv1antispoofing
+servers:
+- url: https://auth.api.yoti.com
+paths:
+  /accounts/{accountid}/moderations:
+    post:
+      operationId: post_accounts_accountid_moderations
+      tags:
+      - Accounts
+      summary: Request a resource is moderated
+      x-source: https://developers.yoti.com/trust-api.md?operation=op-post-accountsaccountidmoderations
+      parameters:
+      - name: accountid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+        description: Define the content-type of the request payload.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostAccountsAccountidModerationsRequest'
+      responses:
+        '202':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostAccountsAccountidModerationsResponse'
+      x-evidence:
+        kind: documentation
+  /ai/v1/{v1id}:
+    post:
+      operationId: post_ai_v1_v1id
+      tags:
+      - Ai
+      summary: Age estimation
+      description: Use Yoti's Age estimation service. Yoti strongly recommends you couple this with liveness.
+      x-source: https://developers.yoti.com/facial-age-estimation-api.md?operation=op-post-aiv1age
+      parameters:
+      - name: v1id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: nonce
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Randomly generated UUID. Auto-generated if using the Web Face Capture Module.
+      - name: timestamp
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Randomly generated UUID. Auto-generated if using the Web Face Capture Module.
+      - name: secure
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Enable the use of Secure Image Capture (SICAP) in Web Face Capture Module
+
+          https://developers.yoti.com/age-estimation/secure-image-capture'
+      - name: multiframe
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Use the multiframe mode for a secure request. See the 'secure' argument for more information.
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostAiV1V1IdRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostAiV1V1IdResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at v1Id
+  /api/v1/sessions:
+    post:
+      operationId: post_api_v1_sessions
+      tags:
+      - Api
+      summary: Session creation
+      description: Create a session that can be used by a consumer, when a session is created, a reference ID can be provided to help you identify
+        your customers.
+      x-source: https://developers.yoti.com/age-verification-api.md?operation=post-sessions
+      parameters:
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+        description: Define the expected payload content type (always application/json).
+      - name: Yoti-Sdk-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: SDK ID obtained from the Yoti Hub
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostApiV1SessionsRequest'
+      responses:
+        '2000':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostApiV1SessionsResponse'
+      x-evidence:
+        kind: documentation
+  /api/v1/sessions/{sessionid}:
+    get:
+      operationId: get_api_v1_sessions_sessionid
+      tags:
+      - Api
+      summary: GET /api/v1/sessions/{sessionId}
+      x-source: https://developers.yoti.com/age-verification/headless-idv-client.md
+      parameters:
+      - name: sessionid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiV1SessionsSessionidResponse'
+      x-evidence:
+        kind: code-example
+        language: httpie
+        snippet: 'http
+
+          GET https://age.yoti.com/api/v1/sessions/<session-id>/doc-scan'
+  /path/to/resource:
+    post:
+      operationId: post_path_to_resource
+      tags:
+      - Path
+      summary: POST /path/to/resource
+      x-source: https://developers.yoti.com/proof-of-age-api
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: http
+        snippet: "        POST /path/to/resource HTTP/2.0\n        Host: api.yoti.com\n        Authorisation: Bearer yta_UJCxUATErS890kAUaOMI7QA_IdESeScy2WKH"
+  /poa/v1/verify:
+    post:
+      operationId: post_poa_v1_verify
+      tags:
+      - Poa
+      summary: Verify Proof of Age
+      description: Verify Proof of Age
+      x-source: https://developers.yoti.com/proof-of-age-api.md?operation=v1-poa-verify
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostPoaV1VerifyRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostPoaV1VerifyResponse'
+      x-evidence:
+        kind: documentation
+  /v1/oauth/token:
+    post:
+      operationId: post_v1_oauth_token
+      tags:
+      - Oauth
+      summary: POST /v1/oauth/token
+      x-source: https://developers.yoti.com/proof-of-age/api-authentication.md
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: httpie
+        snippet: 'http
+
+          POST https://auth.api.yoti.com/v1/oauth/token'
+components:
+  schemas:
+    PostAccountsAccountidModerationsRequest:
+      type: object
+      properties:
+        content_id:
+          type: string
+        moderator_id:
+          type: string
+        profile_ids:
+          type: array
+        group_ids:
+          type: array
+        age_estimation:
+          type: integer
+        unknown_faces:
+          type: boolean
+        consent:
+          type: boolean
+        id_verified_profiles:
+          type: boolean
+        id_verified_uploader:
+          type: boolean
+        notifications:
+          type: object
+        flagged_object_categories:
+          type: array
+        flagged_contexts:
+          type: array
+        policies:
+          type: array
+        user_info:
+          type: string
+        query:
+          type: string
+      required:
+      - content_id
+    PostAccountsAccountidModerationsResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Created
+    PostAiV1V1IdRequest:
+      type: object
+      properties:
+        img:
+          type: string
+          description: High quality Base64 encoded image. Subject to image requirements https://developers.yoti.com/age-estimation/overview#image-requirements
+        img_validation_level:
+          type: string
+          description: (optional) The level of validations to be applied against the image and bounding boxes to support different sizes of images.
+        secure:
+          type: object
+          description: Required for SICAP Secure image capture) Secure information that certifies the image was not modified. The Yoti React Face
+            Capture provides this information that shouldn't be edited.
+        age_estimation_model:
+          type: string
+          description: (optional) Select a specific age estimation model to execute. [Please get in touch with us to discuss switching to a different
+            model.]
+    PostAiV1V1IdResponse:
+      type: object
+      properties:
+        age:
+          type: number
+        std_dev:
+          type: number
+    PostApiV1SessionsRequest:
+      type: object
+      properties:
+        CreateSession:
+          type: string
+          description: This payload will generate a session configuration object
+      required:
+      - CreateSession
+    PostApiV1SessionsResponse:
+      type: object
+      properties:
+        '200':
+          type: string
+          description: OK
+        '400':
+          type: string
+          description: Bad request - missing field, spoofing attempt detected, invalid validation methods, need to re-verify
+        '401':
+          type: string
+          description: Missing or unknown Yoti-Sdk-Id
+        '403':
+          type: string
+          description: Not allowed to use this session
+    GetApiV1SessionsSessionidResponse:
+      type: object
+      properties:
+        token:
+          type: string
+        session_id:
+          type: string
+    PostPoaV1VerifyRequest:
+      type: object
+      properties:
+        qr:
+          type: object
+          description: Information/Metadata linked to the scanned QR code
+        qr.value:
+          type: string
+          description: The value of the scanned QR code
+        qr.scanned_at:
+          type: string
+          description: When the QR code was scanned by the reader
+        terminal:
+          type: object
+          description: Information/Metadata linked to the terminal that scanned the QR code
+        terminal.id:
+          type: string
+          description: An identifier for the terminal that is used to scan the QR code
+        terminal.store_id:
+          type: string
+          description: An identifier for the location/unit to which the `id` is registered or is operating under
+      required:
+      - qr
+      - qr.value
+      - qr.scanned_at
+      - terminal
+      - terminal.id
+    PostPoaV1VerifyResponse:
+      type: object
+      properties:
+        '200':
+          type: string
+          description: OK
+        '202':
+          type: string
+          description: Accepted
+        '400':
+          type: string
+          description: Bad Request
+        '422':
+          type: string
+          description: Unprocessable Entry
+        '500':
+          type: string
+          description: Server Error
+  securitySchemes:
+    OAuth2_Client_Credentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.api.yoti.com/v1/oauth/token
+          scopes:
+            did:match: ''
+            poa:verify: ''
+      x-source: https://developers.yoti.com/digital-id/did-match-authentication.md
+tags:
+- name: Accounts
+- name: Ai
+- name: Api
+- name: Oauth
+- name: Path
+- name: Poa
+security:
+- OAuth2_Client_Credentials:
+  - did:match
+  - poa:verify

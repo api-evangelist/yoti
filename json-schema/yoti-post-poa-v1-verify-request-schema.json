@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/yoti/main/json-schema/yoti-post-poa-v1-verify-request-schema.json",
+  "title": "PostPoaV1VerifyRequest",
+  "x-generated": "2026-10-14",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/yoti-openapi-generated.yml#/components/schemas/PostPoaV1VerifyRequest",
+  "type": "object",
+  "properties": {
+    "qr": {
+      "type": "object",
+      "description": "Information/Metadata linked to the scanned QR code"
+    },
+    "qr.value": {
+      "type": "string",
+      "description": "The value of the scanned QR code"
+    },
+    "qr.scanned_at": {
+      "type": "string",
+      "description": "When the QR code was scanned by the reader"
+    },
+    "terminal": {
+      "type": "object",
+      "description": "Information/Metadata linked to the terminal that scanned the QR code"
+    },
+    "terminal.id": {
+      "type": "string",
+      "description": "An identifier for the terminal that is used to scan the QR code"
+    },
+    "terminal.store_id": {
+      "type": "string",
+      "description": "An identifier for the location/unit to which the `id` is registered or is operating under"
+    }
+  },
+  "required": [
+    "qr",
+    "qr.value",
+    "qr.scanned_at",
+    "terminal",
+    "terminal.id"
+  ]
+}

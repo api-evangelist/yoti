@@ -1,0 +1,8 @@
+generated: '2026-10-14'
+method: probed
+source: https://developers.yoti.com/mcp
+deployment:
+  mode: remote
+  endpoint: https://developers.yoti.com/mcp
+  auth: unknown
+  verified: probed

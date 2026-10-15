@@ -1,0 +1,145 @@
+{
+  "@context": {
+    "@vocab": "https://yoti.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "yoti": "https://yoti.com/schema#",
+    "PostAccountsAccountidModerationsRequest": "yoti:PostAccountsAccountidModerationsRequest",
+    "content_id": {
+      "@id": "yoti:content_id",
+      "@type": "xsd:string"
+    },
+    "moderator_id": {
+      "@id": "yoti:moderator_id",
+      "@type": "xsd:string"
+    },
+    "profile_ids": {
+      "@id": "yoti:profile_ids",
+      "@container": "@list"
+    },
+    "group_ids": {
+      "@id": "yoti:group_ids",
+      "@container": "@list"
+    },
+    "age_estimation": {
+      "@id": "yoti:age_estimation",
+      "@type": "xsd:integer"
+    },
+    "unknown_faces": {
+      "@id": "yoti:unknown_faces",
+      "@type": "xsd:boolean"
+    },
+    "consent": {
+      "@id": "yoti:consent",
+      "@type": "xsd:boolean"
+    },
+    "id_verified_profiles": {
+      "@id": "yoti:id_verified_profiles",
+      "@type": "xsd:boolean"
+    },
+    "id_verified_uploader": {
+      "@id": "yoti:id_verified_uploader",
+      "@type": "xsd:boolean"
+    },
+    "notifications": {
+      "@id": "yoti:notifications"
+    },
+    "flagged_object_categories": {
+      "@id": "yoti:flagged_object_categories",
+      "@container": "@list"
+    },
+    "flagged_contexts": {
+      "@id": "yoti:flagged_contexts",
+      "@container": "@list"
+    },
+    "policies": {
+      "@id": "yoti:policies",
+      "@container": "@list"
+    },
+    "user_info": {
+      "@id": "yoti:user_info",
+      "@type": "xsd:string"
+    },
+    "query": {
+      "@id": "yoti:query",
+      "@type": "xsd:string"
+    },
+    "PostAccountsAccountidModerationsResponse": "yoti:PostAccountsAccountidModerationsResponse",
+    "id": {
+      "@id": "yoti:id",
+      "@type": "xsd:string"
+    },
+    "PostAiV1V1IdRequest": "yoti:PostAiV1V1IdRequest",
+    "img": {
+      "@id": "yoti:img",
+      "@type": "xsd:string"
+    },
+    "img_validation_level": {
+      "@id": "yoti:img_validation_level",
+      "@type": "xsd:string"
+    },
+    "secure": {
+      "@id": "yoti:secure"
+    },
+    "age_estimation_model": {
+      "@id": "yoti:age_estimation_model",
+      "@type": "xsd:string"
+    },
+    "PostAiV1V1IdResponse": "yoti:PostAiV1V1IdResponse",
+    "age": {
+      "@id": "yoti:age",
+      "@type": "xsd:decimal"
+    },
+    "std_dev": {
+      "@id": "yoti:std_dev",
+      "@type": "xsd:decimal"
+    },
+    "PostApiV1SessionsRequest": "yoti:PostApiV1SessionsRequest",
+    "CreateSession": {
+      "@id": "yoti:CreateSession",
+      "@type": "xsd:string"
+    },
+    "PostApiV1SessionsResponse": "yoti:PostApiV1SessionsResponse",
+    "GetApiV1SessionsSessionidResponse": "yoti:GetApiV1SessionsSessionidResponse",
+    "token": {
+      "@id": "yoti:token",
+      "@type": "xsd:string"
+    },
+    "session_id": {
+      "@id": "yoti:session_id",
+      "@type": "xsd:string"
+    },
+    "PostPoaV1VerifyRequest": "yoti:PostPoaV1VerifyRequest",
+    "qr": {
+      "@id": "yoti:qr"
+    },
+    "qr.value": {
+      "@id": "yoti:qr.value",
+      "@type": "xsd:string"
+    },
+    "qr.scanned_at": {
+      "@id": "yoti:qr.scanned_at",
+      "@type": "xsd:string"
+    },
+    "terminal": {
+      "@id": "yoti:terminal"
+    },
+    "terminal.id": {
+      "@id": "yoti:terminal.id",
+      "@type": "xsd:string"
+    },
+    "terminal.store_id": {
+      "@id": "yoti:terminal.store_id",
+      "@type": "xsd:string"
+    },
+    "PostPoaV1VerifyResponse": "yoti:PostPoaV1VerifyResponse"
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Yoti API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Yoti's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-14) from openapi/_ae-authored/yoti-openapi-generated.yml.",
+  "dcterms:created": "2026-10-14",
+  "dcterms:source": [
+    "openapi/_ae-authored/yoti-openapi-generated.yml"
+  ]
+}
