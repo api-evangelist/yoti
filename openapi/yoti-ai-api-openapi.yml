@@ -1,0 +1,126 @@
+openapi: 3.2.0
+info:
+  title: Yoti AI API
+  version: '2026-10-14'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-14: 7 operation(s) read from 10 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Yoti has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 3
+    documentation: 4
+    pages-with-code: 4
+    pages-read: 10
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-14'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://developers.yoti.com/proof-of-age-api
+  - https://developers.yoti.com/proof-of-age-api.md
+  - https://developers.yoti.com/proof-of-age/api-authentication.md
+  - https://developers.yoti.com/age-verification/headless-idv-client.md
+  - https://developers.yoti.com/proof-of-age-api.md?operation=v1-poa-verify
+  - https://developers.yoti.com/age-verification-api.md?operation=post-sessions
+  - https://developers.yoti.com/facial-age-estimation-api.md?operation=op-post-aiv1age
+  - https://developers.yoti.com/trust-api.md?operation=op-post-accountsaccountidmoderations
+  - https://developers.yoti.com/age-verification-api.md?operation=op-get-apiv1sessionssessionid
+  - https://developers.yoti.com/facial-age-estimation-api.md?operation=op-post-aiv1antispoofing
+servers:
+- url: https://auth.api.yoti.com
+security:
+- OAuth2_Client_Credentials:
+  - did:match
+  - poa:verify
+tags:
+- name: AI
+paths:
+  /ai/v1/{v1id}:
+    post:
+      operationId: post_ai_v1_v1id
+      tags:
+      - AI
+      summary: Age estimation
+      description: Use Yoti's Age estimation service. Yoti strongly recommends you couple this with liveness.
+      x-source: https://developers.yoti.com/facial-age-estimation-api.md?operation=op-post-aiv1age
+      parameters:
+      - name: v1id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: nonce
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Randomly generated UUID. Auto-generated if using the Web Face Capture Module.
+      - name: timestamp
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Randomly generated UUID. Auto-generated if using the Web Face Capture Module.
+      - name: secure
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Enable the use of Secure Image Capture (SICAP) in Web Face Capture Module
+
+          https://developers.yoti.com/age-estimation/secure-image-capture'
+      - name: multiframe
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Use the multiframe mode for a secure request. See the 'secure' argument for more information.
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostAiV1V1IdRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostAiV1V1IdResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at v1Id
+components:
+  schemas:
+    PostAiV1V1IdRequest:
+      type: object
+      properties:
+        img:
+          type: string
+          description: High quality Base64 encoded image. Subject to image requirements https://developers.yoti.com/age-estimation/overview#image-requirements
+        img_validation_level:
+          type: string
+          description: (optional) The level of validations to be applied against the image and bounding boxes to support different sizes of images.
+        secure:
+          type: object
+          description: Required for SICAP Secure image capture) Secure information that certifies the image was not modified. The Yoti React Face Capture provides this information that shouldn't be edited.
+        age_estimation_model:
+          type: string
+          description: (optional) Select a specific age estimation model to execute. [Please get in touch with us to discuss switching to a different model.]
+    PostAiV1V1IdResponse:
+      type: object
+      properties:
+        age:
+          type: number
+        std_dev:
+          type: number
+  securitySchemes:
+    OAuth2_Client_Credentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.api.yoti.com/v1/oauth/token
+          scopes:
+            did:match: ''
+            poa:verify: ''
+      x-source: https://developers.yoti.com/digital-id/did-match-authentication.md

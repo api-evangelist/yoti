@@ -1,0 +1,123 @@
+openapi: 3.2.0
+info:
+  title: Yoti Accounts API
+  version: '2026-10-14'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-14: 7 operation(s) read from 10 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Yoti has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 3
+    documentation: 4
+    pages-with-code: 4
+    pages-read: 10
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-14'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://developers.yoti.com/proof-of-age-api
+  - https://developers.yoti.com/proof-of-age-api.md
+  - https://developers.yoti.com/proof-of-age/api-authentication.md
+  - https://developers.yoti.com/age-verification/headless-idv-client.md
+  - https://developers.yoti.com/proof-of-age-api.md?operation=v1-poa-verify
+  - https://developers.yoti.com/age-verification-api.md?operation=post-sessions
+  - https://developers.yoti.com/facial-age-estimation-api.md?operation=op-post-aiv1age
+  - https://developers.yoti.com/trust-api.md?operation=op-post-accountsaccountidmoderations
+  - https://developers.yoti.com/age-verification-api.md?operation=op-get-apiv1sessionssessionid
+  - https://developers.yoti.com/facial-age-estimation-api.md?operation=op-post-aiv1antispoofing
+servers:
+- url: https://auth.api.yoti.com
+security:
+- OAuth2_Client_Credentials:
+  - did:match
+  - poa:verify
+tags:
+- name: Accounts
+paths:
+  /accounts/{accountid}/moderations:
+    post:
+      operationId: post_accounts_accountid_moderations
+      tags:
+      - Accounts
+      summary: Request a resource is moderated
+      x-source: https://developers.yoti.com/trust-api.md?operation=op-post-accountsaccountidmoderations
+      parameters:
+      - name: accountid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+        description: Define the content-type of the request payload.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostAccountsAccountidModerationsRequest'
+      responses:
+        '202':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostAccountsAccountidModerationsResponse'
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    PostAccountsAccountidModerationsRequest:
+      type: object
+      properties:
+        content_id:
+          type: string
+        moderator_id:
+          type: string
+        profile_ids:
+          type: array
+        group_ids:
+          type: array
+        age_estimation:
+          type: integer
+        unknown_faces:
+          type: boolean
+        consent:
+          type: boolean
+        id_verified_profiles:
+          type: boolean
+        id_verified_uploader:
+          type: boolean
+        notifications:
+          type: object
+        flagged_object_categories:
+          type: array
+        flagged_contexts:
+          type: array
+        policies:
+          type: array
+        user_info:
+          type: string
+        query:
+          type: string
+      required:
+      - content_id
+    PostAccountsAccountidModerationsResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Created
+  securitySchemes:
+    OAuth2_Client_Credentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.api.yoti.com/v1/oauth/token
+          scopes:
+            did:match: ''
+            poa:verify: ''
+      x-source: https://developers.yoti.com/digital-id/did-match-authentication.md

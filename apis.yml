@@ -110,17 +110,16 @@ apis:
   humanURL: https://developers.yoti.com/age-verification-api
   baseURL: null
   aid: yoti:age-verification-api
-- aid: yoti:yoti-api
-  name: Yoti API
-  description: 'Yoti API as documented publicly: 7 operations. Contract generated from the documentation by API Evangelist (2026-10-14); not the
-
-    provider''s own document.'
-  humanURL: https://developers.yoti.com/proof-of-age-api
+- aid: yoti:yoti-accounts-api
+  name: Yoti Accounts API
+  description: The Accounts API from Yoti — 1 operation(s) for accounts.
+  humanURL: https://developers.yoti.com/age-verification-api
   baseURL: https://auth.api.yoti.com
+  tags:
+  - Accounts
   properties:
   - type: OpenAPI
-    url: openapi/_ae-authored/yoti-openapi-generated.yml
-    x-provenance: generated
+    url: openapi/yoti-accounts-api-openapi.yml
   - type: JSONSchema
     url: json-schema/yoti-post-ai-v1-v1-id-request-schema.json
   - type: JSONSchema
@@ -133,7 +132,116 @@ apis:
     url: json-schema/yoti-post-poa-v1-verify-response-schema.json
   - type: JSONSchema
     url: json-schema/yoti-post-api-v1-sessions-request-schema.json
-
+- aid: yoti:yoti-ai-api
+  name: Yoti AI API
+  description: The Ai API from Yoti — 1 operation(s) for ai.
+  humanURL: https://developers.yoti.com/age-verification-api
+  baseURL: https://auth.api.yoti.com
+  tags:
+  - Ai
+  properties:
+  - type: OpenAPI
+    url: openapi/yoti-ai-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/yoti-post-ai-v1-v1-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-poa-v1-verify-request-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-accounts-accountid-moderations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-api-v1-sessions-response-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-poa-v1-verify-response-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-api-v1-sessions-request-schema.json
+- aid: yoti:yoti-oauth-api
+  name: Yoti OAuth API
+  description: The Oauth API from Yoti — 1 operation(s) for oauth.
+  humanURL: https://developers.yoti.com/age-verification-api
+  baseURL: https://auth.api.yoti.com
+  tags:
+  - Oauth
+  properties:
+  - type: OpenAPI
+    url: openapi/yoti-oauth-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/yoti-post-ai-v1-v1-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-poa-v1-verify-request-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-accounts-accountid-moderations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-api-v1-sessions-response-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-poa-v1-verify-response-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-api-v1-sessions-request-schema.json
+- aid: yoti:yoti-path-api
+  name: Yoti Path API
+  description: The Path API from Yoti — 1 operation(s) for path.
+  humanURL: https://developers.yoti.com/age-verification-api
+  baseURL: https://auth.api.yoti.com
+  tags:
+  - Path
+  properties:
+  - type: OpenAPI
+    url: openapi/yoti-path-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/yoti-post-ai-v1-v1-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-poa-v1-verify-request-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-accounts-accountid-moderations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-api-v1-sessions-response-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-poa-v1-verify-response-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-api-v1-sessions-request-schema.json
+- aid: yoti:yoti-poa-api
+  name: Yoti Poa API
+  description: The Poa API from Yoti — 1 operation(s) for poa.
+  humanURL: https://developers.yoti.com/age-verification-api
+  baseURL: https://auth.api.yoti.com
+  tags:
+  - Poa
+  properties:
+  - type: OpenAPI
+    url: openapi/yoti-poa-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/yoti-post-ai-v1-v1-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-poa-v1-verify-request-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-accounts-accountid-moderations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-api-v1-sessions-response-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-poa-v1-verify-response-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-api-v1-sessions-request-schema.json
+- aid: yoti:yoti-sessions-api
+  name: Yoti Sessions API
+  description: The Sessions API from Yoti — 2 operation(s) for sessions.
+  humanURL: https://developers.yoti.com/age-verification-api
+  baseURL: https://auth.api.yoti.com
+  tags:
+  - Sessions
+  properties:
+  - type: OpenAPI
+    url: openapi/yoti-sessions-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/yoti-post-ai-v1-v1-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-poa-v1-verify-request-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-accounts-accountid-moderations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-api-v1-sessions-response-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-poa-v1-verify-response-schema.json
+  - type: JSONSchema
+    url: json-schema/yoti-post-api-v1-sessions-request-schema.json
 x-coverage:
   state: none
   reason: no-developer-program

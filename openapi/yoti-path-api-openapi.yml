@@ -1,0 +1,61 @@
+openapi: 3.2.0
+info:
+  title: Yoti Path API
+  version: '2026-10-14'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-14: 7 operation(s) read from 10 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Yoti has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 3
+    documentation: 4
+    pages-with-code: 4
+    pages-read: 10
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-14'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://developers.yoti.com/proof-of-age-api
+  - https://developers.yoti.com/proof-of-age-api.md
+  - https://developers.yoti.com/proof-of-age/api-authentication.md
+  - https://developers.yoti.com/age-verification/headless-idv-client.md
+  - https://developers.yoti.com/proof-of-age-api.md?operation=v1-poa-verify
+  - https://developers.yoti.com/age-verification-api.md?operation=post-sessions
+  - https://developers.yoti.com/facial-age-estimation-api.md?operation=op-post-aiv1age
+  - https://developers.yoti.com/trust-api.md?operation=op-post-accountsaccountidmoderations
+  - https://developers.yoti.com/age-verification-api.md?operation=op-get-apiv1sessionssessionid
+  - https://developers.yoti.com/facial-age-estimation-api.md?operation=op-post-aiv1antispoofing
+servers:
+- url: https://auth.api.yoti.com
+security:
+- OAuth2_Client_Credentials:
+  - did:match
+  - poa:verify
+tags:
+- name: Path
+paths:
+  /path/to/resource:
+    post:
+      operationId: post_path_to_resource
+      tags:
+      - Path
+      summary: POST /path/to/resource
+      x-source: https://developers.yoti.com/proof-of-age-api
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: http
+        snippet: "        POST /path/to/resource HTTP/2.0\n        Host: api.yoti.com\n        Authorisation: Bearer yta_UJCxUATErS890kAUaOMI7QA_IdESeScy2WKH"
+components:
+  securitySchemes:
+    OAuth2_Client_Credentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.api.yoti.com/v1/oauth/token
+          scopes:
+            did:match: ''
+            poa:verify: ''
+      x-source: https://developers.yoti.com/digital-id/did-match-authentication.md

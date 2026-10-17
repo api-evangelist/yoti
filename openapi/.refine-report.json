@@ -1,0 +1,26 @@
+{
+  "provider": "yoti",
+  "sources": [
+    "_ae-authored/yoti-openapi-generated.yml"
+  ],
+  "outputs": [
+    "yoti-accounts-api-openapi.yml",
+    "yoti-ai-api-openapi.yml",
+    "yoti-oauth-api-openapi.yml",
+    "yoti-path-api-openapi.yml",
+    "yoti-poa-api-openapi.yml",
+    "yoti-sessions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "yoti-openapi-generated.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "yoti-openapi-generated.yml: tagged paths POST /api/v1/sessions -> Sessions",
+    "yoti-openapi-generated.yml: tagged paths GET /api/v1/sessions/{sessionid} -> Sessions",
+    "yoti-openapi-generated.yml: declared missing tag: Sessions",
+    "apis.yml register: written (+6 apis, 7 total)"
+  ],
+  "skipped": []
+}

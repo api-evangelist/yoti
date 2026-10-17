@@ -1,0 +1,140 @@
+openapi: 3.2.0
+info:
+  title: Yoti Sessions API
+  version: '2026-10-14'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-14: 7 operation(s) read from 10 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Yoti has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 3
+    documentation: 4
+    pages-with-code: 4
+    pages-read: 10
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-14'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://developers.yoti.com/proof-of-age-api
+  - https://developers.yoti.com/proof-of-age-api.md
+  - https://developers.yoti.com/proof-of-age/api-authentication.md
+  - https://developers.yoti.com/age-verification/headless-idv-client.md
+  - https://developers.yoti.com/proof-of-age-api.md?operation=v1-poa-verify
+  - https://developers.yoti.com/age-verification-api.md?operation=post-sessions
+  - https://developers.yoti.com/facial-age-estimation-api.md?operation=op-post-aiv1age
+  - https://developers.yoti.com/trust-api.md?operation=op-post-accountsaccountidmoderations
+  - https://developers.yoti.com/age-verification-api.md?operation=op-get-apiv1sessionssessionid
+  - https://developers.yoti.com/facial-age-estimation-api.md?operation=op-post-aiv1antispoofing
+servers:
+- url: https://auth.api.yoti.com
+security:
+- OAuth2_Client_Credentials:
+  - did:match
+  - poa:verify
+tags:
+- name: Sessions
+paths:
+  /api/v1/sessions:
+    post:
+      operationId: post_api_v1_sessions
+      tags:
+      - Sessions
+      summary: Session creation
+      description: Create a session that can be used by a consumer, when a session is created, a reference ID can be provided to help you identify your customers.
+      x-source: https://developers.yoti.com/age-verification-api.md?operation=post-sessions
+      parameters:
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+        description: Define the expected payload content type (always application/json).
+      - name: Yoti-Sdk-Id
+        in: header
+        required: true
+        schema:
+          type: string
+        description: SDK ID obtained from the Yoti Hub
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostApiV1SessionsRequest'
+      responses:
+        '2000':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostApiV1SessionsResponse'
+      x-evidence:
+        kind: documentation
+  /api/v1/sessions/{sessionid}:
+    get:
+      operationId: get_api_v1_sessions_sessionid
+      tags:
+      - Sessions
+      summary: GET /api/v1/sessions/{sessionId}
+      x-source: https://developers.yoti.com/age-verification/headless-idv-client.md
+      parameters:
+      - name: sessionid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiV1SessionsSessionidResponse'
+      x-evidence:
+        kind: code-example
+        language: httpie
+        snippet: 'http
+
+          GET https://age.yoti.com/api/v1/sessions/<session-id>/doc-scan'
+components:
+  schemas:
+    PostApiV1SessionsRequest:
+      type: object
+      properties:
+        CreateSession:
+          type: string
+          description: This payload will generate a session configuration object
+      required:
+      - CreateSession
+    PostApiV1SessionsResponse:
+      type: object
+      properties:
+        '200':
+          type: string
+          description: OK
+        '400':
+          type: string
+          description: Bad request - missing field, spoofing attempt detected, invalid validation methods, need to re-verify
+        '401':
+          type: string
+          description: Missing or unknown Yoti-Sdk-Id
+        '403':
+          type: string
+          description: Not allowed to use this session
+    GetApiV1SessionsSessionidResponse:
+      type: object
+      properties:
+        token:
+          type: string
+        session_id:
+          type: string
+  securitySchemes:
+    OAuth2_Client_Credentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.api.yoti.com/v1/oauth/token
+          scopes:
+            did:match: ''
+            poa:verify: ''
+      x-source: https://developers.yoti.com/digital-id/did-match-authentication.md

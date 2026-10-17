@@ -1,0 +1,115 @@
+openapi: 3.2.0
+info:
+  title: Yoti Poa API
+  version: '2026-10-14'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-14: 7 operation(s) read from 10 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Yoti has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 3
+    documentation: 4
+    pages-with-code: 4
+    pages-read: 10
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-14'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://developers.yoti.com/proof-of-age-api
+  - https://developers.yoti.com/proof-of-age-api.md
+  - https://developers.yoti.com/proof-of-age/api-authentication.md
+  - https://developers.yoti.com/age-verification/headless-idv-client.md
+  - https://developers.yoti.com/proof-of-age-api.md?operation=v1-poa-verify
+  - https://developers.yoti.com/age-verification-api.md?operation=post-sessions
+  - https://developers.yoti.com/facial-age-estimation-api.md?operation=op-post-aiv1age
+  - https://developers.yoti.com/trust-api.md?operation=op-post-accountsaccountidmoderations
+  - https://developers.yoti.com/age-verification-api.md?operation=op-get-apiv1sessionssessionid
+  - https://developers.yoti.com/facial-age-estimation-api.md?operation=op-post-aiv1antispoofing
+servers:
+- url: https://auth.api.yoti.com
+security:
+- OAuth2_Client_Credentials:
+  - did:match
+  - poa:verify
+tags:
+- name: Poa
+paths:
+  /poa/v1/verify:
+    post:
+      operationId: post_poa_v1_verify
+      tags:
+      - Poa
+      summary: Verify Proof of Age
+      x-source: https://developers.yoti.com/proof-of-age-api.md?operation=v1-poa-verify
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostPoaV1VerifyRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostPoaV1VerifyResponse'
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    PostPoaV1VerifyResponse:
+      type: object
+      properties:
+        '200':
+          type: string
+          description: OK
+        '202':
+          type: string
+          description: Accepted
+        '400':
+          type: string
+          description: Bad Request
+        '422':
+          type: string
+          description: Unprocessable Entry
+        '500':
+          type: string
+          description: Server Error
+    PostPoaV1VerifyRequest:
+      type: object
+      properties:
+        qr:
+          type: object
+          description: Information/Metadata linked to the scanned QR code
+        qr.value:
+          type: string
+          description: The value of the scanned QR code
+        qr.scanned_at:
+          type: string
+          description: When the QR code was scanned by the reader
+        terminal:
+          type: object
+          description: Information/Metadata linked to the terminal that scanned the QR code
+        terminal.id:
+          type: string
+          description: An identifier for the terminal that is used to scan the QR code
+        terminal.store_id:
+          type: string
+          description: An identifier for the location/unit to which the `id` is registered or is operating under
+      required:
+      - qr
+      - qr.value
+      - qr.scanned_at
+      - terminal
+      - terminal.id
+  securitySchemes:
+    OAuth2_Client_Credentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.api.yoti.com/v1/oauth/token
+          scopes:
+            did:match: ''
+            poa:verify: ''
+      x-source: https://developers.yoti.com/digital-id/did-match-authentication.md
