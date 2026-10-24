@@ -116,6 +116,8 @@ apis:
   humanURL: https://developers.yoti.com/age-verification-api
   baseURL: https://auth.api.yoti.com
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -138,6 +140,8 @@ apis:
   humanURL: https://developers.yoti.com/age-verification-api
   baseURL: https://auth.api.yoti.com
   tags:
+  - Artificial Intelligence
+  tags_raw:
   - Ai
   properties:
   - type: OpenAPI
@@ -160,6 +164,8 @@ apis:
   humanURL: https://developers.yoti.com/age-verification-api
   baseURL: https://auth.api.yoti.com
   tags:
+  - Authentication
+  tags_raw:
   - Oauth
   properties:
   - type: OpenAPI
@@ -204,6 +210,8 @@ apis:
   humanURL: https://developers.yoti.com/age-verification-api
   baseURL: https://auth.api.yoti.com
   tags:
+  - POA
+  tags_raw:
   - Poa
   properties:
   - type: OpenAPI
